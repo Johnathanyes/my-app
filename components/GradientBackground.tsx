@@ -132,7 +132,9 @@ export function GradientBackground({ children }: ShaderBackgroundProps) {
         )}
       </motion.div>
 
-      {children}
+      <div className="z-10 absolute inset-0 flex items-center justify-center">
+        {children}
+      </div>
     </div>
   );
 }

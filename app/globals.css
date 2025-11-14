@@ -10,6 +10,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sora: var(--font-sora);
+  
+  font-family: {
+    sora: var(--font-sora), sans-serif;
+  }
 }
 
 :root {
