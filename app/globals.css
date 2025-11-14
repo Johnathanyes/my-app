@@ -13,9 +13,7 @@
 
   --font-sora: var(--font-sora);
   
-  font-family: {
-    sora: var(--font-sora), sans-serif;
-  }
+  --font-family-sora: var(--font-sora), sans-serif;
 }
 
 :root {

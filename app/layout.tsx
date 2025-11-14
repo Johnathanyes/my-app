@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora',
+});
 
 export const metadata: Metadata = {
   title: "Portfolio website for jlee",
@@ -14,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={sora.variable}>
       <body
         className={`antialiased`}
       >
