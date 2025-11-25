@@ -16,6 +16,7 @@ const StatBox = ({ label, value }: { label: string; value: string }) => (
     </div>
 );
 
+
 const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
     const ref = useRef<HTMLElement>(null);
 
@@ -37,6 +38,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
 
     return (
         <section
+            id="home"
             ref={ref}
             className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#1C1C1C]"
         >
@@ -53,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
 
             {/* Content */}
             <motion.div
-                className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center"
+                className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center scale-110"
                 style={{ y: contentY, opacity: contentOpacity }}
             >
                 <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter text-[#F4F4F4]">

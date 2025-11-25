@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { Code2 } from 'lucide-react';
 
@@ -8,15 +9,20 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ activeSection, isScrolled, scrollToSection }) => {
+    const maskStyle = {
+        WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 800%)',
+        maskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 60%)',
+    } as React.CSSProperties;
+
+
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent ${isScrolled ? 'bg-black/80 backdrop-blur-md border-zinc-800 py-4' : 'bg-transparent py-6'
+        <nav style={maskStyle}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent ${isScrolled ? 'bg-black/20 backdrop-blur-lg py-4' : 'bg-transparent py-6'
             }`}>
+
             <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
                 <div className="text-xl font-bold tracking-tighter flex items-center gap-2">
-                    <div className="w-8 h-8 bg-white text-black flex items-center justify-center rounded-sm">
-                        <span className="font-mono font-bold text-lg">D</span>
-                    </div>
-                    <span>DEV.FOLIO</span>
+                    <span>JLee</span>
                 </div>
 
                 <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
