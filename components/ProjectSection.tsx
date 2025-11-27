@@ -11,19 +11,19 @@ export default function ProjectSection() {
       id="projects"
       ref={ref}
       style={{
-        opacity: progress > 0.7 ? 1 : progress * 1.43,
+        opacity: Math.min(1, progress * 2.2),
         transform: `translateY(${20 - progress * 20}px)`,
         transition: "opacity 0.2s linear, transform 0.2s ease-out",
       }}
-      className="py-32 border-t border-zinc-900 will-change-transform will-change-opacity"
+      className="py-32 border-zinc-900 will-change-transform will-change-opacity"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Selected Works</h2>
+          <h2 className="text-3xl md:text-6xl font-bold mb-4">Projects</h2>
           <div className="w-20 h-1 bg-white"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
           <ProjectCard
             title="SaaS Dashboard"
             desc="A high-performance analytics dashboard for B2B clients featuring real-time data visualization."

@@ -9,9 +9,9 @@ export default function ContactSection() {
                     Have a project in mind? I'm currently open to new opportunities.
                 </p>
 
-                <a href="mailto:hello@example.com" className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold border-b-2 border-white hover:text-zinc-400 hover:border-zinc-400 transition-all pb-1 mb-16">
-                    hello@example.com <ExternalLink size={24} />
-                </a>
+                <h3 className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold border-b-2 border-white hover:text-zinc-400 hover:border-zinc-400 transition-all pb-1 mb-16">
+                    Johnathanylee327@gmail.com
+                </h3>
 
                 <div className="flex justify-center gap-8">
                     <SocialLink href="#" icon={<Github />} label="GitHub" />
