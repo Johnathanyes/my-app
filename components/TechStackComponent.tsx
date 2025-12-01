@@ -16,25 +16,25 @@ interface TechStackProps {
 // --- Main Component ---
 export default function TechStackWeb({ icons, onIconClick }: TechStackProps) {
   return (
-    <div className="relative w-full max-w-7xl mx-auto py-16 px-6 overflow-hidden min-h-[600px] flex flex-col items-center justify-center">
-      
+    <div className="relative w-full max-w-7xl mx-auto px-6 py-6 overflow-hidden min-h-[600px] flex flex-col items-start justify-start">
+
       {/* 1. Ambient Background (Deep Space + Auroras) */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-[#050505]">
-         {/* Subtle grid pattern to ground the floating elements */}
-         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)]"></div>
+        {/* Subtle grid pattern to ground the floating elements */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)]"></div>
       </div>
-      
+
       {/* Moving Blobs for refraction */}
-      <div className="absolute top-1/4 left-1/4 -z-20 h-96 w-96 -translate-x-1/2 -translate-y-1/2 opacity-30 blur-[100px] bg-blue-600 rounded-full animate-pulse"></div>
+      <div className="absolute top-1/4 left-1/4 -z-20 h-84 w-84 -translate-x-1/2 -translate-y-1/2 opacity-30 blur-[100px] bg-blue-600 rounded-full animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 -z-20 h-96 w-96 translate-x-1/3 translate-y-1/3 opacity-20 blur-[120px] bg-purple-600 rounded-full"></div>
 
       {/* 2. The Liquid Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 lg:gap-12 perspective-1000">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-10 perspective-1000 ">
         {icons.map((item, index) => (
-          <LiquidGlassItem 
-            key={index} 
-            item={item} 
-            onClick={() => onIconClick(item)} 
+          <LiquidGlassItem
+            key={index}
+            item={item}
+            onClick={() => onIconClick(item)}
           />
         ))}
       </div>
@@ -55,14 +55,14 @@ function LiquidGlassItem({ item, onClick }: { item: TechItem; onClick: () => voi
     const { left, top, width, height } = currentTarget.getBoundingClientRect();
     const xPos = clientX - left;
     const yPos = clientY - top;
-    
+
     mouseX.set(xPos);
     mouseY.set(yPos);
 
     // Calculate tilt (subtle)
     const rotateX = ((yPos - height / 2) / height) * -10;
     const rotateY = ((xPos - width / 2) / width) * 10;
-    
+
     x.set(rotateX);
     y.set(rotateY);
   }
@@ -86,8 +86,8 @@ function LiquidGlassItem({ item, onClick }: { item: TechItem; onClick: () => voi
       whileTap={{ scale: 0.95 }}
     >
       {/* THE LIQUID GLASS CONTAINER */}
-      <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-[1.5rem] flex items-center justify-center transition-all duration-500 ease-out z-10">
-        
+      <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-[1.5rem] flex items-center justify-center transition-all duration-500 ease-out z-10">
+
         {/* Layer 1: The Glass Body (Blur + Transparency) */}
         <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/10 to-white/0 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]"></div>
 
@@ -106,8 +106,8 @@ function LiquidGlassItem({ item, onClick }: { item: TechItem; onClick: () => voi
         <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-40 pointer-events-none mix-blend-overlay"></div>
 
         {/* ICON */}
-        <div 
-          className="relative z-16 w-8 h-8 md:w-12 md:h-12 transition-all duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+        <div
+          className="relative z-16 w-4 h-4 md:w-10 md:h-10 transition-all duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
           style={{ color: item.color || '#e5e5e5' }}
         >
           {/* Ensure SVG takes full size */}
@@ -125,7 +125,7 @@ function LiquidGlassItem({ item, onClick }: { item: TechItem; onClick: () => voi
       </div>
 
       {/* Floor Reflection (Optional, adds 3D grounding) */}
-      <div 
+      <div
         className="absolute -bottom-6 w-20 h-4 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-40 transition-all duration-500"
         style={{ backgroundColor: item.color }}
       />
