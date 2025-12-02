@@ -16,8 +16,8 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      // Staggers the animation of children by 0.15s
-      staggerChildren: 0.15,
+      // Staggers the animation of children by 0.2s
+      staggerChildren: 0.2,
       // Delays the whole sequence slightly so the user settles in
       delayChildren: 0.2, 
     },
@@ -26,7 +26,7 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { 
-    y: 20, // Start slightly down
+    y: 25, // Start slightly down
     opacity: 0, 
     filter: "blur(15px)" // The "Cinematic" soft focus start
   },
@@ -41,13 +41,6 @@ const itemVariants: Variants = {
   },
 };
 
-const StatBox = ({ label, value }: { label: string; value: string }) => (
-  // We make the StatBox itself a motion div to partake in the stagger
-  <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start px-6 py-3 border-l-2 border-[#F4F4F4]/20">
-    <p className="text-[#F4F4F4]/60 text-xs uppercase tracking-widest font-medium mb-1">{label}</p>
-    <p className="text-[#F4F4F4] text-2xl font-bold">{value}</p>
-  </motion.div>
-);
 
 const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
   const ref = useRef<HTMLElement>(null);
@@ -61,7 +54,6 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -180]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const bgOverlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   return (
     <section
@@ -79,9 +71,6 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
       </div>
 
       {/* Content Wrapper */}
-      {/* We use 'initial' and 'animate' here to trigger the entry.
-         The 'style' prop handles the scroll exit logic separately.
-      */}
       <motion.div
         className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center scale-110"
         variants={containerVariants}
@@ -126,22 +115,6 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
               <Linkedin className="w-5 h-5" />
             </button>
           </div>
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll Indicator - Fades in last */}
-      <motion.div
-        className="absolute bottom-8 z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        style={{ opacity: indicatorOpacity }}
-      >
-        <motion.div
-           animate={{ y: [0, 10, 0] }}
-           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-             <ChevronDown className="w-8 h-8 opacity-50 text-[#F4F4F4]" />
         </motion.div>
       </motion.div>
     </section>

@@ -1,21 +1,17 @@
 "use client"
 
 import { Code2, Cpu, ExternalLink, Globe, Terminal } from "lucide-react";
-import { useScrollFadeIn } from "@/lib/useScrollFadeIn";
+import { motion } from "framer-motion";
 
 export default function ProjectSection() {
-  const { ref, progress } = useScrollFadeIn();
-
   return (
-    <section
+    <motion.section
       id="projects"
-      ref={ref}
-      style={{
-        opacity: Math.min(1, progress * 2.2),
-        transform: `translateY(${20 - progress * 20}px)`,
-        transition: "opacity 0.2s linear, transform 0.2s ease-out",
-      }}
-      className="py-32 border-zinc-900 will-change-transform will-change-opacity"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.0, ease: "easeOut" }}
+      viewport={{ once: false, margin: "-250px" }}
+      className="py-16 border-zinc-900"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-16">
@@ -50,11 +46,16 @@ export default function ProjectSection() {
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
-
+interface ProjectCardProps {
+  title: string;
+  desc: string;
+  tags: string[];
+  icon: React.ReactNode;
+}
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, tags, icon }) => (
   <div className="group border border-zinc-800 bg-black p-8 hover:border-white/50 transition-all duration-300 cursor-pointer relative overflow-hidden">
@@ -78,11 +79,3 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, tags, icon }) =>
     </div>
   </div>
 );
-
-
-interface ProjectCardProps {
-  title: string;
-  desc: string;
-  tags: string[];
-  icon: React.ReactNode;
-}

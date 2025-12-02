@@ -28,20 +28,20 @@ export default function AboutSection() {
   // First column animations (About Me)
   // Enter: 10% -> 30%
   // Exit:  70% -> 90%
-  const opacity1 = useTransform(scrollYProgress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]);
-  const y1 = useTransform(scrollYProgress, [0.1, 0.3, 0.7, 0.9], [50, 0, 0, -50]);
+  const opacity1 = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [0, 1, 1, 0]);
+  const y1 = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [50, 0, 0, -50]);
 
   // Second column animations (Tech Stack) - slightly delayed/staggered feel
   // Enter: 20% -> 40%
   // Exit:  70% -> 90% (Sync exit with first column for cleaner look)
-  const opacity2 = useTransform(scrollYProgress, [0.2, 0.4, 0.7, 0.9], [0, 1, 1, 0]);
-  const y2 = useTransform(scrollYProgress, [0.2, 0.4, 0.7, 0.9], [50, 0, 0, -50]);
+  const opacity2 = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [0, 1, 1, 0]);
+  const y2 = useTransform(scrollYProgress, [0.1, 0.4, 0.6, 0.9], [50, 0, 0, -50]);
 
   return (
     <section
       ref={sectionRef}
       id="about"
-      className="py-32 bg-zinc-950 border-t border-zinc-900"
+      className="py-20 bg-zinc-950 border-t border-zinc-900"
     >
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-16">
         {/* About Me Column */}

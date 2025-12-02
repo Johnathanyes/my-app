@@ -73,7 +73,7 @@ function LiquidGlassItem({ item, onClick }: { item: TechItem; onClick: () => voi
   }
 
   // The "Glow" follows the mouse
-  const background = useMotionTemplate`radial-gradient(100px circle at ${mouseX}px ${mouseY}px, ${item.color ? item.color + '40' : 'rgba(255,255,255,0.15)'}, transparent 80%)`;
+  const background = useMotionTemplate`radial-gradient(120px circle at ${mouseX}px ${mouseY}px, ${item.color ? item.color + '40' : 'rgba(255,255,255,0.15)'}, transparent 80%)`;
 
   return (
     <motion.div
