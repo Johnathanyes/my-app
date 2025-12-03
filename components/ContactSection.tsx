@@ -1,43 +1,17 @@
 "use client";
 
 import { Github, Linkedin, Mail } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactSection() {
-    const ref = useRef<HTMLDivElement | null>(null);
-    const [progress, setProgress] = useState(0);
-
-    useEffect(() => {
-        const element = ref.current;
-        if (!element) return;
-
-        const onScroll = () => {
-            const rect = element.getBoundingClientRect();
-            const h = window.innerHeight;
-
-            // scroll progress (0 → 1)
-            let p = 1 - rect.top / (h * 0.75);
-            p = Math.min(Math.max(p, 0), 1);
-            setProgress(p);
-        };
-
-        onScroll();
-        window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
-
-    const opacity = progress;
-    const translateY = 40 - progress * 40;
-
     return (
-        <section
+        <motion.section
             id="contact"
-            ref={ref}
-            style={{
-                opacity,
-                transform: `translateY(${translateY}px)`,
-                transition: "opacity 0.1s linear, transform 0.1s linear",
-            }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="py-32 border-t border-zinc-900 text-center will-change-transform"
         >
             <div className="max-w-3xl mx-auto px-6">
@@ -61,7 +35,7 @@ export default function ContactSection() {
                     <SocialLink href="#" icon={<Mail />} label="Email" />
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
 
