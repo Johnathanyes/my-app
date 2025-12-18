@@ -7,11 +7,12 @@ export default function ProjectSection() {
   return (
     <motion.section
       id="projects"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.0, ease: "easeOut" }}
-      viewport={{ once: false, margin: "-250px" }}
-      className="py-16 border-zinc-900"
+      initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.3 }}
+      className="py-32 border-zinc-900"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-16">
@@ -21,9 +22,9 @@ export default function ProjectSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
           <ProjectCard
-            title="SaaS Dashboard"
-            desc="A high-performance analytics dashboard for B2B clients featuring real-time data visualization."
-            tags={["Next.js", "TypeScript", "Tailwind"]}
+            title="Popsmart"
+            desc="A B2B Saas that helps businesses create high conversion rate campaigns for any use case"
+            tags={["Next.js", "Fastify", "Typescript", "Svelte", "Railway"]}
             icon={<Terminal size={20} />}
           />
           <ProjectCard
@@ -32,18 +33,7 @@ export default function ProjectSection() {
             tags={["Node.js", "PostgreSQL", "Docker"]}
             icon={<Globe size={20} />}
           />
-          <ProjectCard
-            title="AI Content Editor"
-            desc="Rich text editor enhanced with AI autocompletion and grammar checking capabilities."
-            tags={["React", "OpenAI", "Zustand"]}
-            icon={<Cpu size={20} />}
-          />
-          <ProjectCard
-            title="Finance Tracker"
-            desc="Personal finance application with budget forecasting and expense categorization."
-            tags={["Vue", "Firebase", "Chart.js"]}
-            icon={<Code2 size={20} />}
-          />
+
         </div>
       </div>
     </motion.section>
