@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-inter',
 });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body
         suppressHydrationWarning
-        className={`antialiased`}
+        className={`${inter.className} antialiased`}
       >
         {children}
       </body>
