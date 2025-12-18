@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           variants={itemVariants}
           className="text-6xl md:text-8xl font-extrabold tracking-tighter text-[#F4F4F4]"
         >
-          Johnathan Lee.
+          Johnathan Lee
         </motion.h1>
 
         {/* Subtitle */}
