@@ -24,7 +24,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-32 bg-zinc-950 border-t border-zinc-900"
+      className="py-32 border-t border-zinc-900"
     >
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-16">
         {/* About Me Column */}
