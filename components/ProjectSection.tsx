@@ -22,16 +22,10 @@ export default function ProjectSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
           <ProjectCard
-            title="Popsmart"
+            title="mado"
             desc="A B2B Saas that helps businesses create high conversion rate campaigns for any use case"
-            tags={["Next.js", "Fastify", "Typescript", "Svelte", "Railway"]}
+            tags={["Next.js", "Fastify", "Typescript", "Svelte", "Railway", "Docker"]}
             icon={<Terminal size={20} />}
-          />
-          <ProjectCard
-            title="E-Commerce API"
-            desc="Headless e-commerce solution with stripe integration and inventory management."
-            tags={["Node.js", "PostgreSQL", "Docker"]}
-            icon={<Globe size={20} />}
           />
 
         </div>
