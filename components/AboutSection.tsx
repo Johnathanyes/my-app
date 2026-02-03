@@ -39,13 +39,14 @@ export default function AboutSection() {
           <h2 className="text-3xl md:text-4xl font-bold mb-8">About Me</h2>
           <p className="text-zinc-400 leading-loose mb-6">
             I am a passionate developer who believes that code is a tool to
-            solve human problems. With a background in design and engineering, I
-            bridge the gap between aesthetics and functionality.
+            solve human problems. With a background in Computer Science, I
+            seek to solve problems in the real world through well designed and
+             infratructured software.
           </p>
           <p className="text-zinc-400 leading-loose">
             Currently based in New York, I spend my days architecting scalable
-            systems and my nights contributing to open source. I prefer dark
-            mode, strong coffee, and clean git commits.
+            systems. I prefer dark
+            mode, a rich tea, and clean git commits.
           </p>
         </motion.div>
 
