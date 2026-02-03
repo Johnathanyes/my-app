@@ -30,9 +30,9 @@ export default function ContactSection() {
                 </h3>
 
                 <div className="flex justify-center gap-8">
-                    <SocialLink href="#" icon={<Github />} label="GitHub" />
-                    <SocialLink href="#" icon={<Linkedin />} label="LinkedIn" />
-                    <SocialLink href="#" icon={<Mail />} label="Email" />
+                    <SocialLink href="https://github.com/Johnathanyes" icon={<Github />} label="GitHub" />
+                    <SocialLink href="https://www.linkedin.com/in/johnathanylee/" icon={<Linkedin />} label="LinkedIn" />
+                    <SocialLink href="mailto:johnathanylee327@gmail.com" icon={<Mail />} label="Email" />
                 </div>
             </div>
         </motion.section>
@@ -42,6 +42,7 @@ export default function ContactSection() {
 const SocialLink = ({ href, icon, label }: SocialLinkProps) => (
     <a
         href={href}
+        target="_blank"
         className="w-12 h-12 flex items-center justify-center border border-zinc-800 rounded-full 
                   hover:bg-white hover:text-black transition-all duration-300 group"
         aria-label={label}

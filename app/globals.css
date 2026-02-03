@@ -11,9 +11,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-sora: var(--font-sora);
-  
-  --font-family-sora: var(--font-sora), sans-serif;
+  --font-family-sans: var(--font-inter), "Inter", sans-serif;
 }
 
 :root {

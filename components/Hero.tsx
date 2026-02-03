@@ -4,6 +4,13 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { ArrowRight, Github, Linkedin, ChevronDown } from "lucide-react";
 import AnimatedBackground from "./AnimatedBackground";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-inter',
+});
 
 interface HeroProps {
   scrollToSection: (id: string) => void;
@@ -19,15 +26,15 @@ const containerVariants: Variants = {
       // Staggers the animation of children by 0.2s
       staggerChildren: 0.2,
       // Delays the whole sequence slightly so the user settles in
-      delayChildren: 0.2, 
+      delayChildren: 0.2,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { 
+  hidden: {
     y: 25, // Start slightly down
-    opacity: 0, 
+    opacity: 0,
     filter: "blur(15px)" // The "Cinematic" soft focus start
   },
   visible: {
@@ -79,15 +86,15 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
         style={{ y: contentY, opacity: contentOpacity }}
       >
         {/* Heading */}
-        <motion.h1 
+        <motion.h1
           variants={itemVariants}
-          className="text-6xl md:text-8xl font-extrabold tracking-tighter text-[#F4F4F4]"
+          className={`text-6xl md:text-8xl font-extrabold tracking-tighter text-[#F4F4F4] ${inter.className}`}
         >
-          Johnathan Lee.
+          Johnathan Lee
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p 
+        <motion.p
           variants={itemVariants}
           className="mt-8 text-xl md:text-2xl max-w-2xl leading-relaxed font-light text-[#F4F4F4]/70"
         >
@@ -95,7 +102,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
         </motion.p>
 
         {/* Action Buttons */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="mt-12 flex flex-col md:flex-row items-center gap-6"
         >
